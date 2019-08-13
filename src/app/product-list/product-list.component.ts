@@ -14,6 +14,7 @@ export class ProductListComponent implements OnInit {
   toggle_sort = 'asec';
 
   public searchText: string;
+  public searchText1: string;
   async ngOnInit() {
     this.productService.getProductList().subscribe(res => {
       this.productList = res;

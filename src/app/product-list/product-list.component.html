@@ -1,8 +1,8 @@
 <div layout="row">
   <div style="display: inline">
     <mat-form-field>
-        <input  matInput placeholder="Seach By Product Name" [(ngModel)]="searchText">
-    </mat-form-field>
+        <input  matInput placeholder="Seach By Product Name and desc" [(ngModel)]="searchText"> 
+    </mat-form-field>&nbsp;&nbsp;
   </div> &nbsp;
   <div style="display: inline">
     <button class="mat-raised-button" (click)="sortArr()">Price Low To High</button> &nbsp; &nbsp;
@@ -11,7 +11,7 @@
 </div>
 <p></p>
 <mat-grid-list cols="3">
-  <mat-grid-tile *ngFor="let product of productList | grdFilter: {name: searchText}">
+  <mat-grid-tile *ngFor="let product of productList | grdFilter: {name: searchText, content:searchText}">
     <mat-card class="example-card">
       <img mat-card-image [src]="product['imageUrl']" style="max-height: 150px;min-height: 150px">
       <mat-card-title> {{product.name}}</mat-card-title>
