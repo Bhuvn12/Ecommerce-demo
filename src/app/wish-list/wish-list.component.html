@@ -1,0 +1,35 @@
+<mat-card *ngIf="!is_cartEmpty">
+    <mat-card-title> My Wish List</mat-card-title>
+    <mat-list>
+      <mat-list-item *ngFor="let product of wishList;let i=index">
+        <img mat-list-avatar [src]="product['imageUrl']" alt="Desc 1">
+        <h3 mat-line>{{product.name}}</h3>
+        <p mat-line>
+          <span>{{product.content}}</span>
+        </p>
+        <button mat-button (click)="removeWishList(product,i)"> Remove</button>
+      </mat-list-item>
+
+    </mat-list>
+    <mat-card-actions>
+        <a>{{product?.price | currency:'INR':'code'}}</a>
+        <button mat-button (click)="goBack()">See Products</button>
+      </mat-card-actions>
+  </mat-card>
+  
+  <div *ngIf="is_cartEmpty" style="width: 100%">
+      <mat-card>
+          <mat-card-title> Wish List Is Empty</mat-card-title>
+          <mat-list>
+            <mat-list-item >
+                <img mat-list-avatar src="./assets/empty_cart.jpeg" alt="Desc 1">
+              <p mat-line>
+                <span>Your wish list is empty, please go to product list and add product in wish list.</span>
+              </p>
+            </mat-list-item>
+          </mat-list>
+          <mat-card-actions>
+              <button mat-button (click)="goBack()">Go Back</button>
+            </mat-card-actions>
+        </mat-card>
+  </div>

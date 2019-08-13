@@ -1,0 +1,33 @@
+<div layout="row">
+  <div style="display: inline">
+    <mat-form-field>
+        <input  matInput placeholder="Seach By Product Name" [(ngModel)]="searchText">
+    </mat-form-field>
+  </div> &nbsp;
+  <div style="display: inline">
+    <button class="mat-raised-button" (click)="sortArr()">Price Low To High</button> &nbsp; &nbsp;
+    <button class="mat-raised-button" (click)="sortDesc()">Price High To Low</button>
+  </div>
+</div>
+<p></p>
+<mat-grid-list cols="3">
+  <mat-grid-tile *ngFor="let product of productList | grdFilter: {name: searchText}">
+    <mat-card class="example-card">
+      <img mat-card-image [src]="product['imageUrl']" style="max-height: 150px;min-height: 150px">
+      <mat-card-title> {{product.name}}</mat-card-title>
+      <mat-card-content>
+        <p>
+          {{product.content}}
+        </p>
+        <p>Review : {{product.review}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a>{{product.price | currency:'INR':'code'}}</a>
+        <button mat-button (click)="addWishList(product)"> <i class="material-icons">
+            favorite_border
+          </i></button>
+        <button mat-button (click)="addToCart(product)">Add To Cart</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

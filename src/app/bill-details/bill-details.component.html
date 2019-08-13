@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>{{description}}</h2>
+
+<mat-dialog-content >
+  <form [formGroup]="billForm"  class="example-form">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Product Name" formControlName="name">
+      </mat-form-field>
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required"> Name is required</div>
+        </div>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Delivery Address" formControlName="address">
+      </mat-form-field>
+      <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+          <div *ngIf="f.address.errors.required"> Address is required</div>
+        </div>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Pin Code" formControlName="pin">
+      </mat-form-field>
+      <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+          <div *ngIf="f.pin.errors.required"> Mobile Number is required</div>
+          <div *ngIf="f.pin.errors"> Enter 6 Digit</div>
+        </div>
+      <mat-form-field class="example-full-width">
+          <input type="number" matInput placeholder="Mobile Number" formControlName="mobile">
+      </mat-form-field>
+      <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+          <div *ngIf="f.mobile.errors.required"> Mobile Number is required</div>
+          <div *ngIf="f.mobile.errors"> Enter 10 Digit</div>
+        </div>
+      <mat-form-field class="example-full-width">
+          <input type="number" matInput placeholder="Total Amount" formControlName="price">
+      </mat-form-field>
+      <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+          <div *ngIf="f.price.errors.required"> Price is required</div>
+        </div>
+      <mat-form-field class="example-full-width">
+          <input type="number" matInput placeholder="Total Amount" formControlName="total">
+      </mat-form-field>
+      <div *ngIf="submitted && f.total.errors" class="invalid-feedback">
+          <div *ngIf="f.total.errors.required"> Total Amount is required</div>
+        </div>
+  </form>
+    
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>

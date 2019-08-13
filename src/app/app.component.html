@@ -1,0 +1,36 @@
+<mat-sidenav-container>
+  <mat-sidenav #drawer fixedInViewport="true" [mode]="push" [opened]="false">
+  </mat-sidenav>
+  <!-- EO: Side nav-->
+
+  <!-- Side nav content-->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="position-fixed">
+      <span>
+        Ecommerce Demo
+      </span> &nbsp;&nbsp;
+      <span>
+        <a routerLink="/product-list">
+          Products
+        </a>
+      </span>
+      <span class="mat-spacer"></span>
+      <span>
+        <a (click)="showWishList()">
+          <i class="material-icons">
+            favorite_border
+          </i>{{wishList.length}}
+        </a>
+        &nbsp;&nbsp;
+        <a (click)="showCart()">
+          <i class="material-icons">
+            shopping_cart
+          </i>{{cartList.length}}
+        </a>
+      </span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<div style="margin:10px;margin-top: 75px">
+  <router-outlet></router-outlet>
+</div>
